@@ -1,0 +1,21 @@
+{
+    "env": {
+        "commonjs": true,
+        "es2021": true,
+        "node": true
+    },
+    "plugins": [
+      "@babel"
+    ],
+    "extends": [
+        "airbnb-base"
+    ],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "rules": {
+      "linebreak-style":"off",
+      "comma-dangle": "off"
+    }
+}
