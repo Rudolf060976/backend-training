@@ -4,6 +4,8 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const config = require('./config/config');
+const userRoutes = require('./routes/users');
+const departRoutes = require('./routes/departments');
 
 const app = express();
 
@@ -15,25 +17,15 @@ app.use(cors());
 
 app.options('*', cors());
 
-app.get('/api/v1/', (req, res, next) => {
-  try {
-    res.status(200).json({
-      error: null,
-      ok: true,
-      status: 200,
-      message: 'Success',
-      data: null
-    });
-  } catch (error) {
-    next(error);
-  }
-});
+app.use('/api/v1/users', userRoutes);
+
+app.use('/api/v1/departments', departRoutes);
 
 app.all('*', () => {
   throw createError(401, 'This Endpoint does not Exist!');
 });
-
-app.use((err, req, res) => {
+// eslint-disable-next-line
+app.use((err, req, res, next) => {
   res.status(err.status || 500).json({
     error: err,
     ok: false,

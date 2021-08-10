@@ -16,6 +16,7 @@
     },
     "rules": {
       "linebreak-style":"off",
-      "comma-dangle": "off"
+      "comma-dangle": "off",
+      "arrow-body-style": "off"
     }
 }
