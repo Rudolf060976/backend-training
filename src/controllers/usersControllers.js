@@ -13,13 +13,15 @@ const getAll = (req, res, next) => {
 };
 
 const getUser = (req, res, next) => {
+  const { userId } = req.params;
+
   try {
     res.status(200).json({
       error: null,
       ok: true,
       status: 200,
       message: 'Success',
-      data: req.angie
+      data: userId
     });
   } catch (error) {
     next(error);
